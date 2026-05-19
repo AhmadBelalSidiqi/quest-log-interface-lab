@@ -1,4 +1,4 @@
-public class TreasureFound {
+public class TreasureFound implements ScoreEvent {
     private final String treasureName;
     private final String rarity;
 
@@ -7,10 +7,12 @@ public class TreasureFound {
         this.rarity = rarity;
     }
 
+    @Override
     public String getName() {
         return this.treasureName;
     }
 
+    @Override
     public int getPoints(){
       switch (this.rarity.toLowerCase()){
           case "common" -> {
@@ -28,6 +30,7 @@ public class TreasureFound {
       }
     }
 
+    @Override
     public String getSummary(){
         return "Found " + this.rarity+" "+this.treasureName+"for "+ getPoints()+" points";
     }
